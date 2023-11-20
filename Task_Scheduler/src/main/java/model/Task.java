@@ -8,8 +8,14 @@ public class Task {
 
   public Task(String givenTitle) {
     this.title = givenTitle;
+    this.alertDate = LocalDate.now();
   }
 
+  /**
+   * Sets the alert date from a string.
+   *
+   * @param givenAlertDate The alert date as a string in "YYYY-MM-DD" format.
+   */
   public void setAlertDate(String givenAlertDate) {
     this.alertDate = LocalDate.parse(givenAlertDate);
   }
