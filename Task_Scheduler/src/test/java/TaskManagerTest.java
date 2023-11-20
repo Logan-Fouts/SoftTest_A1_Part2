@@ -30,7 +30,7 @@ public class TaskManagerTest {
     taskManager.addTask(mockTask3);
 
     List<Task> expected = Arrays.asList(mockTask1, mockTask2, mockTask3);
-    
+
     Assert.assertEquals(expected, taskManager.getTaskList());
   }
 
@@ -51,8 +51,10 @@ public class TaskManagerTest {
     Mockito.when(mockTask.getTitle()).thenReturn(mockTitle);
 
     taskManager.addTask(mockTask);
-    
-    Assert.assertEquals(mockTask, taskManager.removeTaskByTitle(mockTask.getTitle()));
+
+    List<Task> expected = Arrays.asList(mockTask);
+
+    Assert.assertEquals(expected, taskManager.removeTaskByTitle(mockTask.getTitle()));
   }
 
   @Test
@@ -61,12 +63,12 @@ public class TaskManagerTest {
 
     Task mockTask = Mockito.mock(Task.class);
 
-    String mockTitle1 = "Some Title";
-    Mockito.when(mockTask.getTitle()).thenReturn(mockTitle1);
+    String mockTitle = "Some Title";
+    Mockito.when(mockTask.getTitle()).thenReturn(mockTitle);
 
     taskManager.addTask(mockTask);
     taskManager.addTask(mockTask);
-    
+
     List<Task> expected = Arrays.asList(mockTask, mockTask);
 
     Assert.assertEquals(expected, taskManager.removeTaskByTitle(mockTask.getTitle()));

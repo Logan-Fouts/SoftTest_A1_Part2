@@ -25,29 +25,29 @@ public class TaskManager {
     if (givenTask == null) {
       throw new IllegalArgumentException("A Task cannot be null");
     }
-    
-    this.taskList.add(givenTask); 
-  } 
+
+    this.taskList.add(givenTask);
+  }
 
   /**
    * Removes ALL Tasks that have a matching title.
    * 
    * @param givenTaskTitle
-   * @return Most recently removed Task object
+   * @return Most recently all removed Task objects
    */
   public List<Task> removeTaskByTitle(String givenTaskTitle) {
     List<Task> tmpTaskList = new ArrayList<>();
     Iterator<Task> taskListIterator = taskList.iterator();
 
     while (taskListIterator.hasNext()) {
-        Task task = taskListIterator.next();
-        if (task.getTitle().equals(givenTaskTitle)) {
-            tmpTaskList.add(task);
-            taskListIterator.remove();
-        }
+      Task task = taskListIterator.next();
+      if (task.getTitle().equals(givenTaskTitle)) {
+        tmpTaskList.add(task);
+        taskListIterator.remove();
+      }
     }
 
     return tmpTaskList;
-}
+  }
 
 }
