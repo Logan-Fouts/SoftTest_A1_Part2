@@ -54,4 +54,22 @@ public class TaskManagerTest {
     
     Assert.assertEquals(mockTask, taskManager.removeTaskByTitle(mockTask.getTitle()));
   }
+
+  @Test
+  public void shouldReturnMultipleTasksWhenRemoveTaskByTitleDuplicates() {
+    TaskManager taskManager = new TaskManager();
+
+    Task mockTask = Mockito.mock(Task.class);
+
+    String mockTitle1 = "Some Title";
+    Mockito.when(mockTask.getTitle()).thenReturn(mockTitle1);
+
+    taskManager.addTask(mockTask);
+    taskManager.addTask(mockTask);
+    
+    List<Task> expected = Arrays.asList(mockTask, mockTask);
+
+    Assert.assertEquals(expected, taskManager.removeTaskByTitle(mockTask.getTitle()));
+  }
+
 }
