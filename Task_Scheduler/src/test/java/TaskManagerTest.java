@@ -40,4 +40,15 @@ public class TaskManagerTest {
 
     taskManager.addTask(null);
   }
+
+  @Test
+  public void shouldReturnTaskWhenRemoveTask() {
+    TaskManager taskManager = new TaskManager();
+
+    Task mockTask = Mockito.mock(Task.class);
+
+    taskManager.addTask(mockTask);
+    
+    Assert.assertEquals(mockTask, taskManager.removeTask(mockTask));
+  }
 }
