@@ -1,7 +1,5 @@
 package view;
 
-import model.Task;
-
 public class TaskSchedulerView {
     private IInput input;
     private IOutput output;
