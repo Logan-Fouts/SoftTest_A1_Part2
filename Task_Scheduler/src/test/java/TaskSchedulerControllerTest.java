@@ -32,6 +32,8 @@ public class TaskSchedulerControllerTest {
 
   @Test
   public void shouldCallShowErrorWhenInputError() {
+    final String ERROR_MESSAGE = "Invalid input, please try again.";
+    final int NUM_INVOCATIONS = 1;
     TaskScheduleController controller;
     TaskManager mockTaskManager;
     TaskSchedulerView mockTaskView;
@@ -44,6 +46,6 @@ public class TaskSchedulerControllerTest {
 
     controller.start();
 
-    verify(mockTaskView, times(1)).showError("Invalid input, please try again.");
+    verify(mockTaskView, times(NUM_INVOCATIONS)).showError(ERROR_MESSAGE);
   }
 }
