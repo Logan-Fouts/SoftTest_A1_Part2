@@ -42,13 +42,16 @@ public class TaskManagerTest {
   }
 
   @Test
-  public void shouldReturnTaskWhenRemoveTask() {
+  public void shouldReturnTaskWhenRemoveTaskByTitle() {
     TaskManager taskManager = new TaskManager();
 
     Task mockTask = Mockito.mock(Task.class);
 
+    String mockTitle = "Some Title";
+    Mockito.when(mockTask.getTitle()).thenReturn(mockTitle);
+
     taskManager.addTask(mockTask);
     
-    Assert.assertEquals(mockTask, taskManager.removeTask(mockTask));
+    Assert.assertEquals(mockTask, taskManager.removeTaskByTitle(mockTask.getTitle()));
   }
 }

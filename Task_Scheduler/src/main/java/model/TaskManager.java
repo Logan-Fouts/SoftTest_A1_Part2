@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 public class TaskManager {
@@ -27,4 +28,20 @@ public class TaskManager {
     
     this.taskList.add(givenTask); 
   } 
+
+  public Task removeTaskByTitle(String givenTaskTitle) {
+    Task tmpTask = null;
+    Iterator<Task> taskListIterator = taskList.iterator();
+
+    while (taskListIterator.hasNext()) {
+        Task task = taskListIterator.next();
+        if (task.getTitle().equals(givenTaskTitle)) {
+            tmpTask = task;
+            taskListIterator.remove();
+        }
+    }
+
+    return tmpTask;
+}
+
 }
