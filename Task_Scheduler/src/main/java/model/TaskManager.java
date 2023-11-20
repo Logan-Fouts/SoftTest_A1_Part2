@@ -21,6 +21,10 @@ public class TaskManager {
   }
 
   public void addTask(Task givenTask) {
+    if (givenTask == null) {
+      throw new IllegalArgumentException("A Task cannot be null");
+    }
+    
     this.taskList.add(givenTask); 
   } 
 }
