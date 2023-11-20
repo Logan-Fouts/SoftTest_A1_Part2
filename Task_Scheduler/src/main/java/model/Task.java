@@ -35,6 +35,10 @@ public class Task {
     this.description = givenDescription;
   }
 
+  public void setTitle(String givenTitle) {
+    this.title = givenTitle;
+  }
+
   public String getDescription() {
     return this.description;
   }
