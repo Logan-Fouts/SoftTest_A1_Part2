@@ -30,4 +30,20 @@ public class TaskSchedulerControllerTest {
     verify(mockTaskView, atLeastOnce()).getUserMenuSelection();
   }
 
+  @Test
+  public void shouldCallShowErrorWhenInputError() {
+    TaskScheduleController controller;
+    TaskManager mockTaskManager;
+    TaskSchedulerView mockTaskView;
+
+    mockTaskManager = mock(TaskManager.class);
+    mockTaskView = mock(TaskSchedulerView.class);
+    controller = new TaskScheduleController(mockTaskManager, mockTaskView);
+
+    when(mockTaskView.getUserMenuSelection()).thenReturn(-1);
+
+    controller.start();
+
+    verify(mockTaskView, times(1)).showError("Invalid input, please try again.");
+  }
 }
