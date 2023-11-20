@@ -29,6 +29,12 @@ public class TaskManager {
     this.taskList.add(givenTask); 
   } 
 
+  /**
+   * Removes ALL Tasks that have a matching title.
+   * 
+   * @param givenTaskTitle
+   * @return Most recently removed Task object
+   */
   public Task removeTaskByTitle(String givenTaskTitle) {
     Task tmpTask = null;
     Iterator<Task> taskListIterator = taskList.iterator();
