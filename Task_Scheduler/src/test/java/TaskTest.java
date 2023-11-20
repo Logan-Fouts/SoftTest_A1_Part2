@@ -1,5 +1,4 @@
 import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
 import model.Task;
@@ -31,7 +30,7 @@ public class TaskTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void testTaskWithNullTitle() {
-      new Task(null);
+    new Task(null);
   }
 
 }
