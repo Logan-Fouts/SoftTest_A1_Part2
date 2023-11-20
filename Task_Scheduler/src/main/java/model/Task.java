@@ -17,7 +17,7 @@ public class Task {
    * @param givenAlertDate The alert date as a string in "YYYY-MM-DD" format.
    */
   public void setAlertDate(String givenAlertDate) {
-    this.alertDate = LocalDate.parse(givenAlertDate);
+    this.alertDate = LocalDate.parse(givenAlertDate); 
   }
 
   public String getTitle() {
