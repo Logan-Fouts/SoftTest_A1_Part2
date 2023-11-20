@@ -1,7 +1,9 @@
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import model.Task;
 import model.TaskManager;
@@ -12,6 +14,23 @@ public class TaskManagerTest {
   public void shouldReturnEmptyWhenGetTasksEmpty() {
     TaskManager taskManager = new TaskManager();
     List<Task> expected = List.of();
+    Assert.assertEquals(expected, taskManager.getTaskList());
+  }
+
+  @Test
+  public void shouldReturnListWithThreeElementsWhenGetTasks() {
+    TaskManager taskManager = new TaskManager();
+
+    Task mockTask1 = Mockito.mock(Task.class);
+    Task mockTask2 = Mockito.mock(Task.class);
+    Task mockTask3 = Mockito.mock(Task.class);
+
+    taskManager.add(mockTask1);
+    taskManager.add(mockTask2);
+    taskManager.add(mockTask3);
+
+    List<Task> expected = Arrays.asList(mockTask1, mockTask2, mockTask3);
+    
     Assert.assertEquals(expected, taskManager.getTaskList());
   }
 }
