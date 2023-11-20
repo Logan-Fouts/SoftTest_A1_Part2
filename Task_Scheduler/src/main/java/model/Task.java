@@ -9,7 +9,7 @@ public class Task {
 
   public Task(String givenTitle) {
     this.title = givenTitle;
-    this.alertDate = LocalDate.now();
+    this.alertDate = null;
   }
 
   public Task(String givenTitle, String givenDescription, String givenAlertDate) {

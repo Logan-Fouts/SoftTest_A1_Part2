@@ -1,5 +1,5 @@
 import static org.junit.Assert.assertNotNull;
-import java.time.format.DateTimeParseException;
+
 import org.junit.Test;
 
 import model.Task;
@@ -25,7 +25,13 @@ public class TaskTest {
   public void shouldNotReturnNullDescriptionWhenGetDescription() {
     Task task = new Task("Go Out To Eat");
     task.setDescription("Grab some food from Max");
-    
+
     assertNotNull("Task description should not be null", task.getDescription());
   }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testTaskWithNullTitle() {
+      new Task(null);
+  }
+
 }
