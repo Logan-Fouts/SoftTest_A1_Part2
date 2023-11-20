@@ -15,4 +15,9 @@ public class TaskSchedulerView {
         output.println("3. Remove All Tasks Named ...");
         output.println("0. Exit");
     }
+
+    public int getUserMenuSelection() {
+        output.println("Enter your choice: ");
+        return input.readInt();
+    }
 }
