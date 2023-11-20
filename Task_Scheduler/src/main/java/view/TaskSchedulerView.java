@@ -20,4 +20,8 @@ public class TaskSchedulerView {
         output.print("Enter your choice: ");
         return input.readInt();
     }
+
+    public void showError(String errorMessage) {
+        output.println(errorMessage);
+    }
 }

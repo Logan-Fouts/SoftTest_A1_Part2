@@ -20,6 +20,10 @@ public class TaskScheduleController {
         case 0:
           running = false;
           break;
+        default:
+          taskView.showError("Invalid input, please try again.");
+          running = false;
+          break;
       }
     }
   }
