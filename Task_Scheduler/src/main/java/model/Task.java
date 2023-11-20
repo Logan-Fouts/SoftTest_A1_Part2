@@ -36,6 +36,9 @@ public class Task {
   }
 
   public void setTitle(String givenTitle) {
+    if (givenTitle == null || givenTitle.trim().isEmpty()) {
+      throw new IllegalArgumentException("Title cannot be null or empty");
+    }
     this.title = givenTitle;
   }
 
