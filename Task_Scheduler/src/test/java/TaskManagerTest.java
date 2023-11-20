@@ -25,9 +25,9 @@ public class TaskManagerTest {
     Task mockTask2 = Mockito.mock(Task.class);
     Task mockTask3 = Mockito.mock(Task.class);
 
-    taskManager.add(mockTask1);
-    taskManager.add(mockTask2);
-    taskManager.add(mockTask3);
+    taskManager.addTask(mockTask1);
+    taskManager.addTask(mockTask2);
+    taskManager.addTask(mockTask3);
 
     List<Task> expected = Arrays.asList(mockTask1, mockTask2, mockTask3);
     

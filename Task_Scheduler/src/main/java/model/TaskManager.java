@@ -14,4 +14,8 @@ public class TaskManager {
   public List<Task> getTaskList() {
     return Collections.unmodifiableList(taskList);
   }
+
+  public void addTask(Task givenTask) {
+    this.taskList.add(givenTask);
+  } 
 }
