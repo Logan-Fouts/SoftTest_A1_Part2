@@ -1,11 +1,17 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class TaskManager {
-  ArrayList<Task> taskList;
+  List<Task> taskList;
 
-  public ArrayList<Task> getTaskList() {
-    return this.taskList;
+  public TaskManager() {
+    this.taskList = new ArrayList<>();
+  }
+
+  public List<Task> getTaskList() {
+    return Collections.unmodifiableList(taskList);
   }
 }
