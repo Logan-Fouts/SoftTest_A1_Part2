@@ -8,11 +8,15 @@ public class Task {
   private LocalDate alertDate;
 
   public Task(String givenTitle) {
+    if (givenTitle == null || givenTitle.trim().isEmpty()) {
+      throw new IllegalArgumentException("Title cannot be null or empty");
+    }
     this.title = givenTitle;
     this.alertDate = null;
   }
 
   public Task(String givenTitle, String givenDescription, String givenAlertDate) {
+    this(givenTitle);
     this.title = givenTitle;
     this.description = givenDescription;
     this.alertDate = LocalDate.parse(givenAlertDate);
