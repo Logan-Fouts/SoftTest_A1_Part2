@@ -17,7 +17,7 @@ public class TaskSchedulerView {
     }
 
     public int getUserMenuSelection() {
-        output.println("Enter your choice: ");
+        output.print("Enter your choice: ");
         return input.readInt();
     }
 }
