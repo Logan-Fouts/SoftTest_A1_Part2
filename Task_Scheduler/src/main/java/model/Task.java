@@ -1,5 +1,13 @@
 package model;
 
 public class Task {
-  // TODO: Model a task
+  private String title;
+
+  public Task(String givenTitle) {
+    this.title = givenTitle;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
 }
