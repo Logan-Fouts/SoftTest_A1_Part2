@@ -33,4 +33,11 @@ public class TaskManagerTest {
     
     Assert.assertEquals(expected, taskManager.getTaskList());
   }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void shouldThrowIllegalArgErrorWhenAddNullTask() {
+    TaskManager taskManager = new TaskManager();
+
+    taskManager.addTask(null);
+  }
 }
