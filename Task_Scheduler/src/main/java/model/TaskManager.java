@@ -35,19 +35,19 @@ public class TaskManager {
    * @param givenTaskTitle
    * @return Most recently removed Task object
    */
-  public Task removeTaskByTitle(String givenTaskTitle) {
-    Task tmpTask = null;
+  public List<Task> removeTaskByTitle(String givenTaskTitle) {
+    List<Task> tmpTaskList = new ArrayList<>();
     Iterator<Task> taskListIterator = taskList.iterator();
 
     while (taskListIterator.hasNext()) {
         Task task = taskListIterator.next();
         if (task.getTitle().equals(givenTaskTitle)) {
-            tmpTask = task;
+            tmpTaskList.add(task);
             taskListIterator.remove();
         }
     }
 
-    return tmpTask;
+    return tmpTaskList;
 }
 
 }
