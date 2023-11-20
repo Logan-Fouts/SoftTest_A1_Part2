@@ -1,4 +1,8 @@
 import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.time.format.DateTimeParseException;
+
 import org.junit.Test;
 
 import model.Task;
@@ -31,6 +35,13 @@ public class TaskTest {
   @Test(expected = IllegalArgumentException.class)
   public void testTaskWithNullTitle() {
     new Task(null);
+  }
+
+  @Test
+  public void shouldUpdateTitleWhenSetTitle() {
+      Task task = new Task("Old Title");
+      task.setTitle("New Title");
+      assertEquals("New Title", task.getTitle());
   }
 
 }
