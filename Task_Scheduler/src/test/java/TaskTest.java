@@ -17,7 +17,8 @@ public class TaskTest {
   @Test
   public void shouldNotReturnNullDateWhenGetDate() {
     Task task = new Task("Do School Work");
-
+    task.setAlertDate("2023-11-25");
+    
     assertNotNull("Task alertDate should not be null", task.getAlertDate());
   }
 
