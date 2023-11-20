@@ -30,6 +30,8 @@ public class TaskSchedulerViewTest {
 
   @Test
   public void shouldReturnOneWhenEnteredInMenue() {
+    final int USER_SELECTION = 1;
+
     IInput mockInput;
     IOutput mockOutput;
     TaskSchedulerView taskView;
@@ -38,8 +40,8 @@ public class TaskSchedulerViewTest {
     mockOutput = mock(IOutput.class);
     taskView = new TaskSchedulerView(mockInput, mockOutput);
 
-    Mockito.when(mockInput.readInt()).thenReturn(1);
+    Mockito.when(mockInput.readInt()).thenReturn(USER_SELECTION);
 
-    assertEquals(1, taskView.getUserMenuSelection());
+    assertEquals(USER_SELECTION, taskView.getUserMenuSelection());
   }
 }
