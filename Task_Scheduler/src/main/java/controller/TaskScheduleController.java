@@ -22,7 +22,6 @@ public class TaskScheduleController {
           break;
         default:
           taskView.showError("Invalid input, please try again.");
-          running = false;
           break;
       }
     }
