@@ -100,4 +100,30 @@ public class TaskSchedulerControllerTest {
 
     verify(mockTaskView, atLeastOnce()).showTasks(mockTaskManager.getTaskList());
   }
+
+  @Test
+  public void shouldSendRemoveTaskDetailsWhenSelected() throws InterruptedException {
+    final int USER_INPUT = 3;
+    final int THREAD_SLEEP = 100;
+
+    TaskScheduleController controller;
+    TaskManager mockTaskManager;
+    TaskSchedulerView mockTaskView;
+
+    mockTaskManager = mock(TaskManager.class);
+    mockTaskView = mock(TaskSchedulerView.class);
+    controller = new TaskScheduleController(mockTaskManager, mockTaskView);
+
+    when(mockTaskView.getUserMenuSelection()).thenReturn(USER_INPUT);
+
+    Thread controllerThread = new Thread(() -> controller.start());
+    controllerThread.start();
+
+    Thread.sleep(THREAD_SLEEP);
+
+    controller.stop();
+    controllerThread.join();
+
+    verify(mockTaskView, atLeastOnce()).getRemovalDetails();
+  }
 }
