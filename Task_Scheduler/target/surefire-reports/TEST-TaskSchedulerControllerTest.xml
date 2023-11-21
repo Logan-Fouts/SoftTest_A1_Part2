@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="TaskSchedulerControllerTest" time="4.756" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="TaskSchedulerControllerTest" time="4.929" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.20.1+1-post-Ubuntu-0ubuntu122.04"/>
@@ -59,9 +59,9 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="TaskSchedulerControllerTest" name="shouldCallShowErrorWhenInputError" time="3.394"/>
-  <testcase classname="TaskSchedulerControllerTest" name="shouldRecieveOneWhenEntered" time="1.117"/>
+  <testcase classname="TaskSchedulerControllerTest" name="shouldCallShowErrorWhenInputError" time="3.57"/>
+  <testcase classname="TaskSchedulerControllerTest" name="shouldRecieveOneWhenEntered" time="1.076"/>
   <testcase classname="TaskSchedulerControllerTest" name="shouldSendRemoveTaskDetailsWhenSelected" time="0.112"/>
   <testcase classname="TaskSchedulerControllerTest" name="shouldCallGetUserEntryWhenStarted" time="0.003"/>
-  <testcase classname="TaskSchedulerControllerTest" name="shouldSendShowTasksWhenSelected" time="0.13"/>
+  <testcase classname="TaskSchedulerControllerTest" name="shouldSendShowTasksWhenSelected" time="0.168"/>
 </testsuite>

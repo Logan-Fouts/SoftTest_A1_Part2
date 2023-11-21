@@ -37,9 +37,9 @@ public class TaskTest {
 
   @Test
   public void shouldUpdateTitleWhenSetTitle() {
-      Task task = new Task("Old Title");
-      task.setTitle("New Title");
-      assertEquals("New Title", task.getTitle());
+    Task task = new Task("Old Title");
+    task.setTitle("New Title");
+    assertEquals("New Title", task.getTitle());
   }
 
 }

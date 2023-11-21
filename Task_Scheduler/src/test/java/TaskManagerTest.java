@@ -74,4 +74,10 @@ public class TaskManagerTest {
     Assert.assertEquals(expected, taskManager.removeTaskByTitle(mockTask.getTitle()));
   }
 
+  @Test(expected = NullPointerException.class)
+  public void shouldThrowNullPointerWhenRemoveNullName() {
+    TaskManager manager = new TaskManager();
+    manager.removeTaskByTitle(null);
+  }
+
 }
