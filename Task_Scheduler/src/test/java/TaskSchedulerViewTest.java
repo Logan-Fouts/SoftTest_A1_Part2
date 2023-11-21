@@ -28,7 +28,7 @@ public class TaskSchedulerViewTest {
     taskView = new TaskSchedulerView(mockInput, mockOutput);
 
     taskView.showMenu();
-    verify(mockOutput, times(1)).println("1. Add Task");
+    verify(mockOutput, times(1)).println("\n1. Add Task");
     verify(mockOutput, times(1)).println("2. View Tasks");
     verify(mockOutput, times(1)).println("3. Remove All Tasks Named ...");
     verify(mockOutput, times(1)).println("0. Exit");

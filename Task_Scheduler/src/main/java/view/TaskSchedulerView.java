@@ -13,6 +13,10 @@ public class TaskSchedulerView {
         this.output = output;
     }
 
+    public void showWelcome(String message) {
+        output.println("\n" + message);
+    }
+
     public void showMenu() {
         output.println("\n1. Add Task");
         output.println("2. View Tasks");
@@ -21,12 +25,12 @@ public class TaskSchedulerView {
     }
 
     public int getUserMenuSelection() {
-        output.print("Enter your choice: ");
+        output.print("\nEnter your choice: ");
         return input.readInt();
     }
 
     public Task getTaskDetails() {
-        output.println("Enter Task Details:");
+        output.println("\nEnter Task Details:");
         output.print("Title: ");
         String title = input.readLine();
 

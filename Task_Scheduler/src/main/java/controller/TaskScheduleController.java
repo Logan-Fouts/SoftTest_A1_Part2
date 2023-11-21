@@ -15,6 +15,8 @@ public class TaskScheduleController {
   }
 
   public void start() {
+    String message = "Welcome To Your Task Scheduler";
+    taskView.showWelcome(message);
     while (running) {
       taskView.showMenu();
       int choice = taskView.getUserMenuSelection();
