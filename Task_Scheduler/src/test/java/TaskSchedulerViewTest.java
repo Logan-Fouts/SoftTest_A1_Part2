@@ -65,5 +65,5 @@ public class TaskSchedulerViewTest {
     assertEquals("Test Task", result.getTitle());
     assertEquals("Test Description", result.getDescription());
     assertEquals("2023-12-31", result.getAlertDate().toString());
-}
+  }
 }
