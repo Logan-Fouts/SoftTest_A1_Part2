@@ -16,6 +16,7 @@ public class TaskScheduleController {
 
   public void start() {
     while (running) {
+      taskView.showMenu();
       int choice = taskView.getUserMenuSelection();
       switch (choice) {
         case 0:
