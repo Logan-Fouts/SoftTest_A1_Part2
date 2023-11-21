@@ -60,7 +60,6 @@ public class TaskSchedulerViewTest {
 
     when(mockInput.readLine()).thenReturn("Test Task", "Test Description", "2023-12-31");
 
-    // Act: Call the method under test
     Task result = view.getTaskDetails();
 
     assertEquals("Test Task", result.getTitle());

@@ -23,6 +23,19 @@ public class TaskSchedulerView {
         return input.readInt();
     }
 
+    public Task getTaskDetails() {
+        output.println("Enter Task Details:");
+        output.print("Title: ");
+        String title = input.readLine();
+
+        output.print("Description: ");
+        String description = input.readLine();
+
+        output.print("Alert Date (YYYY-MM-DD): ");
+        String date = input.readLine();
+
+        return new Task(title, description, date);
+    }
 
     public void showError(String errorMessage) {
         output.println(errorMessage);
