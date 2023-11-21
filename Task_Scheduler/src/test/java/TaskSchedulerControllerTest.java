@@ -31,7 +31,7 @@ public class TaskSchedulerControllerTest {
   }
 
   @Test
-  public void shouldCallShowErrorWhenInputError() {
+  public void shouldCallShowErrorWhenInputError() throws InterruptedException {
     final String ERROR_MESSAGE = "Invalid input, please try again.";
     final int NUM_INVOCATIONS = 1;
     TaskScheduleController controller;
@@ -50,7 +50,7 @@ public class TaskSchedulerControllerTest {
   }
 
   @Test
-  public void shouldRecieveOneWhenEntered() {
+  public void shouldRecieveOneWhenEntered() throws InterruptedException {
     final int USER_INPUT = 1;
 
     TaskScheduleController controller;
@@ -63,7 +63,14 @@ public class TaskSchedulerControllerTest {
 
     when(mockTaskView.getUserMenuSelection()).thenReturn(USER_INPUT);
 
-    controller.start();
+    Thread controllerThread = new Thread(() -> controller.start());
+    controllerThread.start();
+
+    Thread.sleep(1000);
+
+    controller.stop();
+
+    controllerThread.join();
 
     verify(mockTaskView, atLeastOnce()).getTaskDetails();
   }

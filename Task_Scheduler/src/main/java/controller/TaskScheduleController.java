@@ -7,6 +7,7 @@ import view.TaskSchedulerView;
 public class TaskScheduleController {
   private TaskManager taskManager;
   private TaskSchedulerView taskView;
+  private boolean running = true;
 
   public TaskScheduleController(TaskManager taskManager, TaskSchedulerView taskView) {
     this.taskManager = taskManager;
@@ -14,7 +15,6 @@ public class TaskScheduleController {
   }
 
   public void start() {
-    boolean running = true;
     while (running) {
       int choice = taskView.getUserMenuSelection();
       switch (choice) {
@@ -23,7 +23,6 @@ public class TaskScheduleController {
           break;
         case 1:
           Task taskToAdd = taskView.getTaskDetails();
-          running = false;
           break;
         default:
           taskView.showError("Invalid input, please try again.");
@@ -31,5 +30,9 @@ public class TaskScheduleController {
           break;
       }
     }
+  }
+
+  public void stop() {
+    running = false;
   }
 }
