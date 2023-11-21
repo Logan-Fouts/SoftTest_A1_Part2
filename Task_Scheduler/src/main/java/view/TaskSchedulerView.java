@@ -39,6 +39,10 @@ public class TaskSchedulerView {
         return new Task(title, description, date);
     }
 
+    public String getRemovalDetails() {
+        return null;
+    }
+
     public void showError(String errorMessage) {
         output.println(errorMessage);
     }

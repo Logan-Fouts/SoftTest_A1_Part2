@@ -95,4 +95,19 @@ public class TaskSchedulerViewTest {
     verify(mockOutput, times(3)).println("An Important Task");
   }
 
+  @Test
+  public void shouldAllowUserDataEntryWhenGetRemovalDetails() {
+    TaskSchedulerView view;
+    IInput mockInput;
+    IOutput mockOutput;
+
+    mockInput = mock(IInput.class);
+    mockOutput = mock(IOutput.class);
+    view = new TaskSchedulerView(mockInput, mockOutput);
+
+    when(mockInput.readLine()).thenReturn("Test Task");
+
+    assertEquals("Test Task", view.getRemovalDetails());
+  }
+
 }
