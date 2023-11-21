@@ -1,2 +1,9 @@
+view/IOutput.class
+Main.class
 model/TaskManager.class
+view/IInput.class
+view/ConsoleInput.class
+view/TaskSchedulerView.class
+controller/TaskScheduleController.class
 model/Task.class
+view/ConsoleOutput.class

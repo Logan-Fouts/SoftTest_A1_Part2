@@ -74,28 +74,28 @@ public class TaskSchedulerControllerTest {
     verify(mockTaskView, atLeastOnce()).getTaskDetails();
   }
 
-  // @Test
-  // public void shouldSendViewTasksWhenSelected() throws InterruptedException {
-  //   final int USER_INPUT = 2;
+  @Test
+  public void shouldSendShowTasksWhenSelected() throws InterruptedException {
+    final int USER_INPUT = 2;
 
-  //   TaskScheduleController controller;
-  //   TaskManager mockTaskManager;
-  //   TaskSchedulerView mockTaskView;
+    TaskScheduleController controller;
+    TaskManager mockTaskManager;
+    TaskSchedulerView mockTaskView;
 
-  //   mockTaskManager = mock(TaskManager.class);
-  //   mockTaskView = mock(TaskSchedulerView.class);
-  //   controller = new TaskScheduleController(mockTaskManager, mockTaskView);
+    mockTaskManager = mock(TaskManager.class);
+    mockTaskView = mock(TaskSchedulerView.class);
+    controller = new TaskScheduleController(mockTaskManager, mockTaskView);
 
-  //   when(mockTaskView.getUserMenuSelection()).thenReturn(USER_INPUT);
+    when(mockTaskView.getUserMenuSelection()).thenReturn(USER_INPUT);
 
-  //   Thread controllerThread = new Thread(() -> controller.start());
-  //   controllerThread.start();
+    Thread controllerThread = new Thread(() -> controller.start());
+    controllerThread.start();
 
-  //   Thread.sleep(2000);
+    // Thread.sleep(1000);
 
-  //   controller.stop();
-  //   controllerThread.join();
+    controller.stop();
+    controllerThread.join();
 
-  //   verify(mockTaskView, atLeastOnce()).getTaskDetails();
-  // }
+    verify(mockTaskView, atLeastOnce()).showTasks(null);
+  }
 }
