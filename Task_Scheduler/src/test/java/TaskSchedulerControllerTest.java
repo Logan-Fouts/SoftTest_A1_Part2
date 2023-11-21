@@ -49,22 +49,22 @@ public class TaskSchedulerControllerTest {
     verify(mockTaskView, times(NUM_INVOCATIONS)).showError(ERROR_MESSAGE);
   }
 
-  // @Test
-  // public void shouldRecieveOneWhenEntered() {
-  //   final int USER_INPUT = 1;
+  @Test
+  public void shouldRecieveOneWhenEntered() {
+    final int USER_INPUT = 1;
 
-  //   TaskScheduleController controller;
-  //   TaskManager mockTaskManager;
-  //   TaskSchedulerView mockTaskView;
+    TaskScheduleController controller;
+    TaskManager mockTaskManager;
+    TaskSchedulerView mockTaskView;
 
-  //   mockTaskManager = mock(TaskManager.class);
-  //   mockTaskView = mock(TaskSchedulerView.class);
-  //   controller = new TaskScheduleController(mockTaskManager, mockTaskView);
+    mockTaskManager = mock(TaskManager.class);
+    mockTaskView = mock(TaskSchedulerView.class);
+    controller = new TaskScheduleController(mockTaskManager, mockTaskView);
 
-  //   when(mockTaskView.getUserMenuSelection()).thenReturn(USER_INPUT);
+    when(mockTaskView.getUserMenuSelection()).thenReturn(USER_INPUT);
 
-  //   controller.start();
+    controller.start();
 
-  //   verify(mockTaskView, atLeastOnce()).getTaskDetails();
-  // }
+    verify(mockTaskView, atLeastOnce()).getTaskDetails();
+  }
 }
