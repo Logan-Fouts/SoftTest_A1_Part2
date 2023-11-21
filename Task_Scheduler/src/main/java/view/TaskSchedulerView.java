@@ -1,5 +1,7 @@
 package view;
 
+import java.util.List;
+
 import model.Task;
 
 public class TaskSchedulerView {
@@ -41,7 +43,9 @@ public class TaskSchedulerView {
         output.println(errorMessage);
     }
 
-    public void showTasks() {
-        
+    public void showTasks(List<Task> taskList) {
+        for (Task task : taskList) {
+            output.println(task.getTitle());
+        }
     }
 }

@@ -91,10 +91,8 @@ public class TaskSchedulerViewTest {
 
     taskView = new TaskSchedulerView(mockInput, mockOutput);
 
-    taskView.showTasks();
-    verify(mockOutput, times(1)).println("An Important Task");
-    verify(mockOutput, times(1)).println("An Important Task");
-    verify(mockOutput, times(1)).println("An Important Task");
+    taskView.showTasks(mockTaskManager.getTaskList());
+    verify(mockOutput, times(3)).println("An Important Task");
   }
 
 }
