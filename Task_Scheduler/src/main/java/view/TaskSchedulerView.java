@@ -14,7 +14,7 @@ public class TaskSchedulerView {
     }
 
     public void showMenu() {
-        output.println("1. Add Task");
+        output.println("\n1. Add Task");
         output.println("2. View Tasks");
         output.println("3. Remove All Tasks Named ...");
         output.println("0. Exit");
@@ -50,8 +50,10 @@ public class TaskSchedulerView {
     }
 
     public void showTasks(List<Task> taskList) {
+        output.println("\nAll Taks Listed Below ...");
         for (Task task : taskList) {
             output.println(task.getTitle());
         }
+        output.println("");
     }
 }
