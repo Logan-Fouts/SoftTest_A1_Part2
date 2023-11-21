@@ -14,10 +14,6 @@ public class TaskSchedulerView {
     }
 
     public void showWelcome(String message) {
-        if (message == null) {
-            throw new NullPointerException();
-        }
-        
         output.println("\n" + message);
     }
 

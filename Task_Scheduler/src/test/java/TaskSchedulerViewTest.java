@@ -109,16 +109,4 @@ public class TaskSchedulerViewTest {
     assertEquals("Test Task", view.getRemovalDetails());
   }
 
-  @Test(expected = NullPointerException.class)
-  public void shouldThrowNullExceptionWhenEmptyWelcome() {
-    TaskSchedulerView view;
-    IInput mockInput;
-    IOutput mockOutput;
-
-    mockInput = mock(IInput.class);
-    mockOutput = mock(IOutput.class);
-    view = new TaskSchedulerView(mockInput, mockOutput);
-
-    view.showWelcome(null);
-  }
 }

@@ -1,6 +1,5 @@
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -33,7 +32,8 @@ public class TaskSchedulerControllerTest {
   @Test
   public void shouldCallShowErrorWhenInputError() throws InterruptedException {
     final String ERROR_MESSAGE = "Invalid input, please try again.";
-    final int NUM_INVOCATIONS = 1;
+    final int THREAD_SLEEP = 100;
+
     TaskScheduleController controller;
     TaskManager mockTaskManager;
     TaskSchedulerView mockTaskView;
@@ -44,9 +44,15 @@ public class TaskSchedulerControllerTest {
 
     when(mockTaskView.getUserMenuSelection()).thenReturn(-1);
 
-    controller.start();
+    Thread controllerThread = new Thread(() -> controller.start());
+    controllerThread.start();
 
-    verify(mockTaskView, times(NUM_INVOCATIONS)).showError(ERROR_MESSAGE);
+    Thread.sleep(THREAD_SLEEP);
+
+    controller.stop();
+    controllerThread.join();
+
+    verify(mockTaskView, atLeastOnce()).showError(ERROR_MESSAGE);
   }
 
   @Test
@@ -126,4 +132,5 @@ public class TaskSchedulerControllerTest {
 
     verify(mockTaskView, atLeastOnce()).getRemovalDetails();
   }
+
 }
