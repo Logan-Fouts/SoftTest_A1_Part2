@@ -30,7 +30,7 @@ public class TaskScheduleController {
           taskView.showTasks(taskManager.getTaskList());
           break;
         case 3:
-          
+          taskView.getRemovalDetails();
           break;
         default:
           taskView.showError("Invalid input, please try again.");
