@@ -36,7 +36,10 @@ public class TaskManager {
    * @return Most recently all removed Task objects
    */
   public List<Task> removeTaskByTitle(String givenTaskTitle) {
-
+    if (givenTaskTitle == null) {
+      throw new NullPointerException();
+    }
+    
     List<Task> tmpTaskList = new ArrayList<>();
     Iterator<Task> taskListIterator = taskList.iterator();
 
