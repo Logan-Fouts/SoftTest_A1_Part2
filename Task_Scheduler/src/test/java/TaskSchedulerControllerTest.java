@@ -48,4 +48,23 @@ public class TaskSchedulerControllerTest {
 
     verify(mockTaskView, times(NUM_INVOCATIONS)).showError(ERROR_MESSAGE);
   }
+
+  // @Test
+  // public void shouldRecieveOneWhenEntered() {
+  //   final int USER_INPUT = 1;
+
+  //   TaskScheduleController controller;
+  //   TaskManager mockTaskManager;
+  //   TaskSchedulerView mockTaskView;
+
+  //   mockTaskManager = mock(TaskManager.class);
+  //   mockTaskView = mock(TaskSchedulerView.class);
+  //   controller = new TaskScheduleController(mockTaskManager, mockTaskView);
+
+  //   when(mockTaskView.getUserMenuSelection()).thenReturn(USER_INPUT);
+
+  //   controller.start();
+
+  //   verify(mockTaskView, atLeastOnce()).getTaskDetails();
+  // }
 }

@@ -1,5 +1,7 @@
 package view;
 
+import model.Task;
+
 public class TaskSchedulerView {
     private IInput input;
     private IOutput output;
@@ -20,6 +22,7 @@ public class TaskSchedulerView {
         output.print("Enter your choice: ");
         return input.readInt();
     }
+
 
     public void showError(String errorMessage) {
         output.println(errorMessage);

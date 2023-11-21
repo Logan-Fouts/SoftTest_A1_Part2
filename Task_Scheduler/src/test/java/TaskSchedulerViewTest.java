@@ -2,10 +2,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import model.Task;
 import view.IInput;
 import view.IOutput;
 import view.TaskSchedulerView;
@@ -44,4 +47,24 @@ public class TaskSchedulerViewTest {
 
     assertEquals(USER_SELECTION, taskView.getUserMenuSelection());
   }
+
+  @Test
+  public void shouldAllowUserDataEntryWhenGetTaskDetails() {
+    TaskSchedulerView view;
+    IInput mockInput;
+    IOutput mockOutput;
+
+    mockInput = mock(IInput.class);
+    mockOutput = mock(IOutput.class);
+    view = new TaskSchedulerView(mockInput, mockOutput);
+
+    when(mockInput.readLine()).thenReturn("Test Task", "Test Description", "2023-12-31");
+
+    // Act: Call the method under test
+    Task result = view.getTaskDetails();
+
+    assertEquals("Test Task", result.getTitle());
+    assertEquals("Test Description", result.getDescription());
+    assertEquals("2023-12-31", result.getAlertDate().toString());
+}
 }
