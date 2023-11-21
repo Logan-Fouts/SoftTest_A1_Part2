@@ -40,4 +40,8 @@ public class TaskSchedulerView {
     public void showError(String errorMessage) {
         output.println(errorMessage);
     }
+
+    public void showTasks() {
+        
+    }
 }

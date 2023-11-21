@@ -4,11 +4,15 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import model.Task;
+import model.TaskManager;
 import view.IInput;
 import view.IOutput;
 import view.TaskSchedulerView;
@@ -66,4 +70,31 @@ public class TaskSchedulerViewTest {
     assertEquals("Test Description", result.getDescription());
     assertEquals("2023-12-31", result.getAlertDate().toString());
   }
+
+  @Test
+  public void shouldShowAllTasksWhenViewCalled() {
+    IInput mockInput;
+    IOutput mockOutput;
+    TaskSchedulerView taskView;
+    Task mockTask;
+    TaskManager mockTaskManager;
+
+    mockInput = mock(IInput.class);
+    mockOutput = mock(IOutput.class);
+    mockTask = mock(Task.class);
+    mockTaskManager = mock(TaskManager.class);
+
+    List<Task> expected = Arrays.asList(mockTask, mockTask, mockTask);
+
+    when(mockTaskManager.getTaskList()).thenReturn(expected);
+    when(mockTask.getTitle()).thenReturn("An Important Task");
+
+    taskView = new TaskSchedulerView(mockInput, mockOutput);
+
+    taskView.showTasks();
+    verify(mockOutput, times(1)).println("An Important Task");
+    verify(mockOutput, times(1)).println("An Important Task");
+    verify(mockOutput, times(1)).println("An Important Task");
+  }
+
 }
