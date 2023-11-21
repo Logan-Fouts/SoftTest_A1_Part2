@@ -52,6 +52,7 @@ public class TaskSchedulerControllerTest {
   @Test
   public void shouldRecieveOneWhenEntered() throws InterruptedException {
     final int USER_INPUT = 1;
+    final int THREAD_SLEEP = 1000;
 
     TaskScheduleController controller;
     TaskManager mockTaskManager;
@@ -66,7 +67,7 @@ public class TaskSchedulerControllerTest {
     Thread controllerThread = new Thread(() -> controller.start());
     controllerThread.start();
 
-    Thread.sleep(1000);
+    Thread.sleep(THREAD_SLEEP);
 
     controller.stop();
     controllerThread.join();
@@ -77,6 +78,7 @@ public class TaskSchedulerControllerTest {
   @Test
   public void shouldSendShowTasksWhenSelected() throws InterruptedException {
     final int USER_INPUT = 2;
+    final int THREAD_SLEEP = 100;
 
     TaskScheduleController controller;
     TaskManager mockTaskManager;
@@ -91,7 +93,7 @@ public class TaskSchedulerControllerTest {
     Thread controllerThread = new Thread(() -> controller.start());
     controllerThread.start();
 
-    Thread.sleep(100);
+    Thread.sleep(THREAD_SLEEP);
 
     controller.stop();
     controllerThread.join();
