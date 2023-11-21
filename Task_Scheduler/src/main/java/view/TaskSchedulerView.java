@@ -40,7 +40,9 @@ public class TaskSchedulerView {
     }
 
     public String getRemovalDetails() {
-        return null;
+        output.print("Enter Task Name: ");
+        String taskName = input.readLine();
+        return taskName;
     }
 
     public void showError(String errorMessage) {
