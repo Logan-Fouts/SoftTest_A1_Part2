@@ -26,6 +26,7 @@ public class TaskScheduleController {
           Task taskToAdd = taskView.getTaskDetails();
           break;
         case 2:
+          taskView.showTasks(taskManager.getTaskList());
           break;
         default:
           taskView.showError("Invalid input, please try again.");

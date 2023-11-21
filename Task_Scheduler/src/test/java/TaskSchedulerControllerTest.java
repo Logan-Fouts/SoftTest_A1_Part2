@@ -91,11 +91,11 @@ public class TaskSchedulerControllerTest {
     Thread controllerThread = new Thread(() -> controller.start());
     controllerThread.start();
 
-    // Thread.sleep(1000);
+    Thread.sleep(100);
 
     controller.stop();
     controllerThread.join();
 
-    verify(mockTaskView, atLeastOnce()).showTasks(null);
+    verify(mockTaskView, atLeastOnce()).showTasks(mockTaskManager.getTaskList());
   }
 }
