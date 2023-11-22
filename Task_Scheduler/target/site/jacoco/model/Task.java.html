@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Task.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_Scheduler</a> &gt; <a href="index.source.html" class="el_package">model</a> &gt; <span class="el_source">Task.java</span></div><h1>Task.java</h1><pre class="source lang-java linenums">package model;
+
+import java.time.LocalDate;
+
+public class Task {
+  private String title;
+  private String description;
+  private LocalDate alertDate;
+
+<span class="fc" id="L10">  public Task(String givenTitle) {</span>
+<span class="fc bfc" id="L11" title="All 4 branches covered.">    if (givenTitle == null || givenTitle.trim().isEmpty()) {</span>
+<span class="fc" id="L12">      throw new IllegalArgumentException(&quot;Title cannot be null or empty&quot;);</span>
+    }
+<span class="fc" id="L14">    this.title = givenTitle;</span>
+<span class="fc" id="L15">    this.alertDate = null;</span>
+<span class="fc" id="L16">  }</span>
+
+  public Task(String givenTitle, String givenDescription, String givenAlertDate) {
+<span class="fc" id="L19">    this(givenTitle);</span>
+<span class="fc" id="L20">    this.description = givenDescription;</span>
+<span class="fc" id="L21">    this.alertDate = LocalDate.parse(givenAlertDate);</span>
+<span class="fc" id="L22">  }</span>
+
+  /**
+   * Sets Alert Date for Task.
+   * 
+   * @param givenAlertDate The alert date given as a string in &quot;YYYY-MM-DD&quot;
+   *                       format.
+   */
+  public void setAlertDate(String givenAlertDate) {
+<span class="fc" id="L31">    this.alertDate = LocalDate.parse(givenAlertDate);</span>
+<span class="fc" id="L32">  }</span>
+
+  public void setDescription(String givenDescription) {
+<span class="fc" id="L35">    this.description = givenDescription;</span>
+<span class="fc" id="L36">  }</span>
+
+  public void setTitle(String givenTitle) {
+<span class="fc bfc" id="L39" title="All 4 branches covered.">    if (givenTitle == null || givenTitle.trim().isEmpty()) {</span>
+<span class="fc" id="L40">      throw new IllegalArgumentException(&quot;Title cannot be null or empty&quot;);</span>
+    }
+<span class="fc" id="L42">    this.title = givenTitle;</span>
+<span class="fc" id="L43">  }</span>
+
+  public String getDescription() {
+<span class="fc" id="L46">    return this.description;</span>
+  }
+
+  public String getTitle() {
+<span class="fc" id="L50">    return this.title;</span>
+  }
+
+  public LocalDate getAlertDate() {
+<span class="fc" id="L54">    return this.alertDate;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

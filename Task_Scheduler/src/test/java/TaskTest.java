@@ -31,8 +31,13 @@ public class TaskTest {
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void testTaskWithNullTitle() {
+  public void shouldThrowErrorWhenTaskWithNullTitle() {
     new Task(null);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void shouldThrowErrorWhenEmptyTitle() {
+    new Task("  ");
   }
 
   @Test
@@ -40,6 +45,18 @@ public class TaskTest {
     Task task = new Task("Old Title");
     task.setTitle("New Title");
     assertEquals("New Title", task.getTitle());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void shouldThrowErrorWhenSetTitleEmpty() {
+    Task task = new Task("Test 1234");
+    task.setTitle(" ");
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void shouldThrowErrorWhenSetTitleNull() {
+    Task task = new Task("New Test 1234");
+    task.setTitle(null);
   }
 
 }

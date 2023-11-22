@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TaskSchedulerView.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_Scheduler</a> &gt; <a href="index.source.html" class="el_package">view</a> &gt; <span class="el_source">TaskSchedulerView.java</span></div><h1>TaskSchedulerView.java</h1><pre class="source lang-java linenums">package view;
+
+import java.util.List;
+
+import model.Task;
+
+public class TaskSchedulerView {
+    private IInput input;
+    private IOutput output;
+
+<span class="fc" id="L11">    public TaskSchedulerView(IInput input, IOutput output) {</span>
+<span class="fc" id="L12">        this.input = input;</span>
+<span class="fc" id="L13">        this.output = output;</span>
+<span class="fc" id="L14">    }</span>
+
+    public void showWelcome(String message) {
+<span class="fc" id="L17">        output.println(&quot;\n&quot; + message);</span>
+<span class="fc" id="L18">    }</span>
+
+    public void showMenu() {
+<span class="fc" id="L21">        output.println(&quot;\n1. Add Task&quot;);</span>
+<span class="fc" id="L22">        output.println(&quot;2. View Tasks&quot;);</span>
+<span class="fc" id="L23">        output.println(&quot;3. Remove All Tasks Named ...&quot;);</span>
+<span class="fc" id="L24">        output.println(&quot;0. Exit&quot;);</span>
+<span class="fc" id="L25">    }</span>
+
+    public int getUserMenuSelection() {
+<span class="fc" id="L28">        output.print(&quot;\nEnter your choice: &quot;);</span>
+<span class="fc" id="L29">        return input.readInt();</span>
+    }
+
+    public Task getTaskDetails() {
+<span class="fc" id="L33">        output.println(&quot;\nEnter Task Details:&quot;);</span>
+<span class="fc" id="L34">        output.print(&quot;Title: &quot;);</span>
+<span class="fc" id="L35">        String title = input.readLine();</span>
+
+<span class="fc" id="L37">        output.print(&quot;Description: &quot;);</span>
+<span class="fc" id="L38">        String description = input.readLine();</span>
+
+<span class="fc" id="L40">        output.print(&quot;Alert Date (YYYY-MM-DD): &quot;);</span>
+<span class="fc" id="L41">        String date = input.readLine();</span>
+
+<span class="fc" id="L43">        return new Task(title, description, date);</span>
+    }
+
+    public String getRemovalDetails() {
+<span class="fc" id="L47">        output.print(&quot;Enter Task Name: &quot;);</span>
+<span class="fc" id="L48">        String taskName = input.readLine();</span>
+<span class="fc" id="L49">        return taskName;</span>
+    }
+
+    public void showError(String errorMessage) {
+<span class="fc" id="L53">        output.println(errorMessage);</span>
+<span class="fc" id="L54">    }</span>
+
+    public void showTasks(List&lt;Task&gt; taskList) {
+<span class="fc" id="L57">        output.println(&quot;\nAll Taks Listed Below ...&quot;);</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        for (Task task : taskList) {</span>
+<span class="fc" id="L59">            output.println(task.getTitle());</span>
+        }
+<span class="fc" id="L61">        output.println(&quot;&quot;);</span>
+<span class="fc" id="L62">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

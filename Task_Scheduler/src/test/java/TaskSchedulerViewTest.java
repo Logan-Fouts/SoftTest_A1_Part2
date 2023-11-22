@@ -109,4 +109,32 @@ public class TaskSchedulerViewTest {
     assertEquals("Test Task", view.getRemovalDetails());
   }
 
+  @Test
+  public void shouldShowWelcomeWhenStarted() {
+    IInput mockInput;
+    IOutput mockOutput;
+    TaskSchedulerView taskView;
+
+    mockInput = mock(IInput.class);
+    mockOutput = mock(IOutput.class);
+    taskView = new TaskSchedulerView(mockInput, mockOutput);
+
+    taskView.showWelcome("Welcome Brah");
+    verify(mockOutput, times(1)).println("\nWelcome Brah");
+  }
+
+  @Test
+  public void shouldShowErrorWhenCalled() {
+    IInput mockInput;
+    IOutput mockOutput;
+    TaskSchedulerView taskView;
+
+    mockInput = mock(IInput.class);
+    mockOutput = mock(IOutput.class);
+    taskView = new TaskSchedulerView(mockInput, mockOutput);
+
+    taskView.showError("Some Sort Of Error Message");
+    verify(mockOutput, times(1)).println("Some Sort Of Error Message");
+  }
+
 }

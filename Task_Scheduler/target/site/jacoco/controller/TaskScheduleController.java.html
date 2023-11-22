@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TaskScheduleController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_Scheduler</a> &gt; <a href="index.source.html" class="el_package">controller</a> &gt; <span class="el_source">TaskScheduleController.java</span></div><h1>TaskScheduleController.java</h1><pre class="source lang-java linenums">package controller;
+
+import model.Task;
+import model.TaskManager;
+import view.TaskSchedulerView;
+
+public class TaskScheduleController {
+  private TaskManager taskManager;
+  private TaskSchedulerView taskView;
+<span class="fc" id="L10">  private boolean running = true;</span>
+
+<span class="fc" id="L12">  public TaskScheduleController(TaskManager taskManager, TaskSchedulerView taskView) {</span>
+<span class="fc" id="L13">    this.taskManager = taskManager;</span>
+<span class="fc" id="L14">    this.taskView = taskView;</span>
+<span class="fc" id="L15">  }</span>
+
+  public void start() {
+<span class="fc" id="L18">    String message = &quot;Welcome To Your Task Scheduler&quot;;</span>
+<span class="fc" id="L19">    taskView.showWelcome(message);</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">    while (running) {</span>
+<span class="fc" id="L21">      taskView.showMenu();</span>
+<span class="fc" id="L22">      int choice = taskView.getUserMenuSelection();</span>
+<span class="fc bfc" id="L23" title="All 5 branches covered.">      switch (choice) {</span>
+        case 0:
+<span class="fc" id="L25">          running = false;</span>
+<span class="fc" id="L26">          break;</span>
+        case 1:
+<span class="fc" id="L28">          Task taskToAdd = taskView.getTaskDetails();</span>
+<span class="fc" id="L29">          taskManager.addTask(taskToAdd);</span>
+<span class="fc" id="L30">          break;</span>
+        case 2:
+<span class="fc" id="L32">          taskView.showTasks(taskManager.getTaskList());</span>
+<span class="fc" id="L33">          break;</span>
+        case 3:
+<span class="fc" id="L35">          String taskName = taskView.getRemovalDetails();</span>
+<span class="fc" id="L36">          taskManager.removeTaskByTitle(taskName);</span>
+<span class="fc" id="L37">          break;</span>
+        default:
+<span class="fc" id="L39">          taskView.showError(&quot;Invalid input, please try again.&quot;);</span>
+          break;
+      }
+    }
+<span class="fc" id="L43">  }</span>
+
+  public void stop() {
+<span class="fc" id="L46">    running = false;</span>
+<span class="fc" id="L47">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

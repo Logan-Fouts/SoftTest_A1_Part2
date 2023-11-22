@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Task_Scheduler,default,Main,26,0,0,0,6,0,2,0,2,0
+Task_Scheduler,view,ConsoleOutput,0,11,0,0,0,5,0,3,0,3
+Task_Scheduler,view,TaskSchedulerView,0,120,0,2,0,31,0,9,0,8
+Task_Scheduler,view,ConsoleInput,0,23,0,0,0,6,0,3,0,3
+Task_Scheduler,controller,TaskScheduleController,0,70,0,7,0,25,0,8,0,3
+Task_Scheduler,model,TaskManager,0,60,1,7,0,18,1,7,0,4
+Task_Scheduler,model,Task,0,64,0,8,0,21,0,12,0,8

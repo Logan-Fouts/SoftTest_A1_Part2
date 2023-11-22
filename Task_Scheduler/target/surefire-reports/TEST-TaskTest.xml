@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="TaskTest" time="0.003" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="TaskTest" time="0.003" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.20.1+1-post-Ubuntu-0ubuntu122.04"/>
@@ -59,9 +59,12 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
+  <testcase classname="TaskTest" name="shouldThrowErrorWhenEmptyTitle" time="0"/>
   <testcase classname="TaskTest" name="shouldNotReturnNullTitleWhenGetTask" time="0.001"/>
   <testcase classname="TaskTest" name="shouldUpdateTitleWhenSetTitle" time="0"/>
-  <testcase classname="TaskTest" name="testTaskWithNullTitle" time="0.001"/>
-  <testcase classname="TaskTest" name="shouldNotReturnNullDateWhenGetDate" time="0.001"/>
-  <testcase classname="TaskTest" name="shouldNotReturnNullDescriptionWhenGetDescription" time="0"/>
+  <testcase classname="TaskTest" name="shouldThrowErrorWhenSetTitleNull" time="0"/>
+  <testcase classname="TaskTest" name="shouldThrowErrorWhenSetTitleEmpty" time="0.001"/>
+  <testcase classname="TaskTest" name="shouldNotReturnNullDateWhenGetDate" time="0"/>
+  <testcase classname="TaskTest" name="shouldNotReturnNullDescriptionWhenGetDescription" time="0.001"/>
+  <testcase classname="TaskTest" name="shouldThrowErrorWhenTaskWithNullTitle" time="0"/>
 </testsuite>
